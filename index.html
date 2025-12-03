@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <title>OCCULT BESTIARY – Login</title>
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/login.css" />
+</head>
+<body>
+
+  <div id="auth-screen" class="auth-wrapper">
+    <div class="auth-card">
+      <h1 class="site-logo">OCCULT BESTIARY</h1>
+      <p class="site-subtitle">오컬트 &amp; 판타지 몬스터 백과</p>
+
+      <div class="auth-badge">ARCANE ACCESS ONLY</div>
+      <h2 class="auth-title">후원자 인증 페이지</h2>
+
+      <p class="auth-description">
+        텀블벅 후원자로부터 발급된 후원자 코드를 입력하면 입장할 수 있습니다.
+      </p>
+
+      <form id="auth-form" class="auth-form">
+        <input
+          type="email"
+          id="supporter-email"
+          class="auth-input"
+          placeholder="example@mail.com"
+          required
+        />
+        <input
+          type="text"
+          id="supporter-code"
+          class="auth-input"
+          placeholder="Supporter Code"
+          required
+        />
+        <button type="submit" class="auth-button">입장하기</button>
+      </form>
+
+      <p class="auth-note">
+        예) OB-2025-XXXX<br />
+        입력한 정보는 서버에 저장되지 않으며, 클라이언트 내에서만 검증에 사용됩니다.
+      </p>
+    </div>
+  </div>
+
+  <script src="js/auth.js"></script>
+</body>
+</html>

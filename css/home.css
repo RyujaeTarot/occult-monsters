@@ -1,0 +1,59 @@
+/* home.css — 메인 홈 화면 */
+
+.hero-section {
+  padding: 90px 40px 70px;
+  background: radial-gradient(circle at top, #08555c 0, #021b1e 55%, #010f12 100%);
+}
+
+.hero-card {
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.hero-label {
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  color: var(--teal);
+  margin-bottom: 16px;
+}
+
+.hero-title {
+  font-size: 2.4rem;
+  color: var(--gold);
+  margin-bottom: 20px;
+}
+
+.hero-text {
+  line-height: 1.7;
+  color: #c1d8d3;
+  font-size: 0.98rem;
+  margin-bottom: 20px;
+}
+
+.hero-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 22px;
+}
+
+.hero-tag {
+  padding: 4px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--teal);
+  background: rgba(43, 179, 163, 0.14);
+  color: var(--teal);
+  font-size: 0.78rem;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* 몬스터 인덱스 섹션 */
+
+.monster-index-section {
+  padding: 70px 40px 100px;
+}

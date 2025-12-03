@@ -1,0 +1,101 @@
+/* modal.css — 몬스터 상세 모달 */
+
+.modal {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+}
+
+.modal.hidden {
+  display: none;
+}
+
+.modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(6px);
+}
+
+.modal-content {
+  position: relative;
+  width: 880px;
+  max-height: 90vh;
+  background: #062a2e;
+  border-radius: 16px;
+  border: 1px solid var(--border-glow);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  z-index: 10;
+}
+
+.modal-close {
+  position: absolute;
+  right: 24px;
+  top: 14px;
+  font-size: 1.8rem;
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+}
+
+.modal-page {
+  display: flex;
+  gap: 20px;
+}
+
+.modal-image-pane img {
+  width: 260px;
+  height: calc(260px * 13 / 8);
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.modal-info-pane {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-name {
+  font-size: 1.8rem;
+  color: var(--gold);
+  margin-bottom: 10px;
+}
+
+.modal-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 18px;
+}
+
+.modal-tag {
+  padding: 3px 9px;
+  border-radius: 999px;
+  background: rgba(43, 179, 163, 0.18);
+  border: 1px solid var(--teal);
+  color: var(--teal);
+  font-size: 0.78rem;
+}
+
+.modal-box {
+  margin-bottom: 18px;
+}
+
+.modal-box h3 {
+  font-size: 0.95rem;
+  color: var(--teal);
+  margin-bottom: 6px;
+}
+
+.modal-box p {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: #cde2de;
+}

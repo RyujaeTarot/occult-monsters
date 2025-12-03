@@ -1,0 +1,53 @@
+/* world.css — 세계관 페이지 */
+
+.world-wrapper {
+  padding-bottom: 80px;
+}
+
+.world-hero {
+  padding: 90px 40px 60px;
+  text-align: center;
+  background: radial-gradient(circle at top, #08555c 0, #021b1e 55%, #010f12 100%);
+}
+
+.world-title {
+  font-size: 2.4rem;
+  color: var(--gold);
+  margin-bottom: 16px;
+}
+
+.world-subtitle {
+  color: #c1d8d3;
+  line-height: 1.7;
+  font-size: 0.98rem;
+}
+
+.world-section {
+  padding: 50px 40px 0;
+  display: flex;
+  justify-content: center;
+}
+
+.world-box {
+  width: 880px;
+  padding: 28px 30px;
+  border-radius: 14px;
+  background: rgba(6, 42, 46, 0.9);
+  border: 1px solid var(--border-glow);
+}
+
+.world-box + .world-box {
+  margin-top: 16px;
+}
+
+.world-box-title {
+  font-size: 1.5rem;
+  color: var(--gold);
+  margin-bottom: 16px;
+}
+
+.world-box p {
+  color: #cde2de;
+  line-height: 1.7;
+  font-size: 0.94rem;
+}

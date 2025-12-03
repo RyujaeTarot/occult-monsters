@@ -1,0 +1,83 @@
+/* base.css — 공통 초기화 및 색상 테마 */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  font-family: 'Noto Serif KR', serif;
+  background: #021b1e;
+  color: #d8e4df;
+  overflow-x: hidden;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+}
+
+.hidden {
+  display: none;
+}
+
+/* 색상 테마 */
+:root {
+  --teal: #2bb3a3;
+  --deep-teal: #0e3f46;
+  --crimson: #d13f4b;
+  --gold: #c7a96b;
+  --light-text: #d8e4df;
+  --dark-bg: #021b1e;
+  --card-bg: #062a2e;
+  --border-glow: rgba(43, 179, 163, 0.5);
+}
+
+/* 섹션 공통 타이틀 */
+.section-title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: var(--gold);
+}
+
+.section-subtitle {
+  color: #bad4cf;
+  margin-bottom: 30px;
+  font-size: 0.95rem;
+}
+
+/* 버튼 공통 */
+.btn-primary,
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 24px;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  cursor: pointer;
+  border: 1px solid transparent;
+}
+
+.btn-primary {
+  background: var(--teal);
+  color: #fff;
+  border-color: var(--teal);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--teal);
+  border-color: var(--teal);
+}
+
+main {
+  padding-bottom: 60px;
+}

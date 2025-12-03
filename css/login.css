@@ -1,0 +1,96 @@
+/* login.css — 로그인 화면 */
+
+.auth-wrapper {
+  width: 100%;
+  min-height: 100vh;
+  background: radial-gradient(circle at top, #064c52 0, #021b1e 55%, #010f12 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.auth-card {
+  width: 420px;
+  padding: 32px 30px 26px;
+  border-radius: 14px;
+  background: rgba(6, 42, 46, 0.93);
+  border: 1px solid var(--border-glow);
+  box-shadow: 0 0 35px rgba(0, 0, 0, 0.6);
+}
+
+.site-logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--gold);
+  text-align: center;
+  margin-bottom: 6px;
+}
+
+.site-subtitle {
+  text-align: center;
+  color: #9bc0bb;
+  font-size: 0.85rem;
+  margin-bottom: 18px;
+}
+
+.auth-badge {
+  display: inline-block;
+  padding: 4px 10px;
+  background: rgba(199, 169, 107, 0.1);
+  border-radius: 999px;
+  color: var(--gold);
+  font-size: 0.75rem;
+  margin-bottom: 10px;
+}
+
+.auth-title {
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+}
+
+.auth-description {
+  font-size: 0.86rem;
+  color: #bdd3cf;
+  margin-bottom: 18px;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.auth-input {
+  padding: 10px 12px;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: #021b1e;
+  color: var(--light-text);
+  font-size: 0.9rem;
+}
+
+.auth-input:focus {
+  outline: 1px solid var(--teal);
+}
+
+.auth-button {
+  margin-top: 6px;
+  padding: 10px;
+  border-radius: 6px;
+  background: var(--teal);
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  font-size: 0.95rem;
+}
+
+.auth-button:hover {
+  background: #27a192;
+}
+
+.auth-note {
+  margin-top: 8px;
+  font-size: 0.78rem;
+  color: #8ca19d;
+}

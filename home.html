@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <title>OCCULT BESTIARY – Monsters</title>
+
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/nav.css" />
+  <link rel="stylesheet" href="css/home.css" />
+  <link rel="stylesheet" href="css/monsters.css" />
+  <link rel="stylesheet" href="css/modal.css" />
+</head>
+<body data-require-auth="true">
+
+  <!-- 상단 네비게이션 -->
+  <header class="top-nav">
+    <div class="nav-left">
+      <a href="home.html" class="nav-logo" id="logo-link">OCCULT BESTIARY</a>
+      <span class="nav-subtitle">오컬트 &amp; 판타지 몬스터 백과</span>
+    </div>
+    <nav class="nav-menu">
+      <a href="#monster-index" class="nav-link">몬스터 도감</a>
+      <a href="world.html" class="nav-link">세계관</a>
+      <a href="https://tumblbug.com" target="_blank" class="nav-link">텀블벅</a>
+      <button id="logout-btn" class="nav-link nav-logout">로그아웃</button>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section id="hero" class="hero-section">
+      <div class="hero-card">
+        <h2 class="hero-label">ARCANE BESTIARY FILE</h2>
+        <h1 class="hero-title">
+          차원 틈에서 흘러 들어온<br />몬스터들의 비밀 기록
+        </h1>
+        <p class="hero-text">
+          이 페이지는 네 소설 세계관 속에 존재하는 모든 오컬트·판타지 몬스터를 정리하는
+          “디지털 그리모와르”다. 각 개체의 성격, 서식, 약점, 금기의 의식을 한 곳에 모아,
+          작가인 너와 독자 모두가 참고할 수 있는 몬스터 백과로 쓰인다.
+        </p>
+
+        <div class="hero-tags">
+          <span class="hero-tag">DARK FANTASY</span>
+          <span class="hero-tag">OCCULT SYMBOLISM</span>
+          <span class="hero-tag">MONSTER ENCYCLOPEDIA</span>
+        </div>
+
+        <div class="hero-actions">
+          <a href="#monster-index" class="btn-primary">몬스터 도감 보기</a>
+          <a href="world.html" class="btn-secondary">세계관 읽기</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Monster Index -->
+    <section id="monster-index" class="monster-index-section">
+      <h2 class="section-title">MONSTER INDEX</h2>
+      <p class="section-subtitle">
+        카테고리를 눌러 필요한 계열만 골라 볼 수 있다. 카드 하나를 클릭하면 상세 정보를 띄운다.
+      </p>
+
+      <div class="monster-filters">
+        <button class="filter-btn active" data-filter="all">전체</button>
+        <button class="filter-btn" data-filter="인간형">인간형</button>
+        <button class="filter-btn" data-filter="언데드">언데드</button>
+        <button class="filter-btn" data-filter="악마">악마</button>
+        <button class="filter-btn" data-filter="정령">정령</button>
+      </div>
+
+      <div id="monster-list" class="monster-list"></div>
+    </section>
+  </main>
+
+  <!-- Monster Modal -->
+  <div id="monster-modal" class="modal hidden">
+    <div class="modal-backdrop"></div>
+    <div class="modal-content">
+      <button class="modal-close" aria-label="닫기">&times;</button>
+      <div class="modal-page">
+        <div class="modal-image-pane">
+          <img id="modal-image" src="" alt="" />
+        </div>
+        <div class="modal-info-pane">
+          <h2 id="modal-name" class="modal-name"></h2>
+          <div id="modal-keywords" class="modal-tags"></div>
+
+          <div class="modal-box">
+            <h3>특징</h3>
+            <p id="modal-feature"></p>
+          </div>
+          <div class="modal-box">
+            <h3>사냥법</h3>
+            <p id="modal-hunt"></p>
+          </div>
+          <div class="modal-box">
+            <h3>기원</h3>
+            <p id="modal-origin"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/nav.js"></script>
+  <script src="js/monsters.js"></script>
+  <script src="js/modal.js"></script>
+</body>
+</html>

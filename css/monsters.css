@@ -1,0 +1,99 @@
+/* monsters.css — 몬스터 카드 리스트 */
+
+.monster-filters {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 28px;
+}
+
+.filter-btn {
+  padding: 6px 16px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.03);
+  color: #c8ddda;
+  font-size: 0.84rem;
+  cursor: pointer;
+}
+
+.filter-btn.active,
+.filter-btn:hover {
+  background: var(--crimson);
+  border-color: var(--crimson);
+  color: #fff;
+}
+
+.monster-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* 카드 : 8:13 비율 이미지 + 정보 */
+
+.monster-card {
+  display: flex;
+  gap: 18px;
+  padding: 14px;
+  border-radius: 14px;
+  background: var(--card-bg);
+  border: 1px solid var(--border-glow);
+  cursor: pointer;
+  transition: transform 0.12s ease-out, box-shadow 0.12s ease-out;
+}
+
+.monster-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 22px rgba(0, 0, 0, 0.55);
+}
+
+.monster-image-wrap {
+  width: 140px;
+  /* 8:13 비율을 유지하기 위한 계산: height = width * (13/8) */
+  height: calc(140px * 13 / 8);
+  border-radius: 10px;
+  overflow: hidden;
+  flex-shrink: 0;
+  background: #000;
+}
+
+.monster-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.monster-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.monster-name {
+  font-size: 1.3rem;
+  color: var(--gold);
+  margin-bottom: 4px;
+}
+
+.monster-short {
+  font-size: 0.9rem;
+  color: #c7dbd7;
+  margin-bottom: 10px;
+}
+
+.monster-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: auto;
+}
+
+.tag {
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: rgba(43, 179, 163, 0.16);
+  border: 1px solid var(--teal);
+  color: var(--teal);
+  font-size: 0.78rem;
+}
