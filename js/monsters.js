@@ -1,78 +1,101 @@
-// monsters.js — 몬스터 리스트 로드 및 필터
+// =====================================
+// 1) JSON 데이터 통합 (fetch 없음)
+// =====================================
+const MONSTER_DATA = [
+  {
+    "name": "뱀파이어",
+    "image": "images/01vampire.jpeg",
+    "short": "밤을 지배하는 흡혈의 포식자.",
+    "keywords": ["인간형", "불사", "흡혈"],
+    "type": "인간형",
+    "description": {
+      "특징": "인간과 거의 구분되지 않는 외형을 지녔으며, 피를 섭취함으로써 젊음을 유지한다.",
+      "사냥법": "직사광선, 은, 성스러운 오브젝트에 약하다.",
+      "기원": "고대 귀족 사회에서 금기를 어긴 자들이 변이한 존재라는 설이 있다."
+    }
+  },
+  {
+    "name": "구울",
+    "image": "images/02ghoul.jpg",
+    "short": "무덤과 전장을 떠도는 시체 포식자.",
+    "keywords": ["언데드", "시체 포식", "야행성"],
+    "type": "언데드",
+    "description": {
+      "특징": "부패한 육식을 탐하며, 인간의 행동을 흉내내기도 한다.",
+      "사냥법": "불에 약하고, 축성된 무기로 재생을 막을 수 있다.",
+      "기원": "집단 매장지에서 죽은 자의 원혼이 응집해 태어난 존재라 전해진다."
+    }
+  }
+  // ... 여기에 계속 추가 가능
+];
 
-let ALL_MONSTERS = [];
 
+// =====================================
+// 2) 카드 렌더링 함수
+// =====================================
 function createMonsterCard(monster) {
-  const card = document.createElement("div");
+  const card = document.createElement("article");
   card.className = "monster-card";
-  card.dataset.type = monster.type || "";
 
   card.innerHTML = `
-    <div class="monster-image-wrap">
-      <img src="images/${monster.image}" alt="${monster.name}" class="monster-image" />
-    </div>
-    <div class="monster-info">
-      <h3 class="monster-name">${monster.name}</h3>
-      <p class="monster-short">${monster.short}</p>
-      <div class="monster-tags">
-        ${monster.keywords.map(k => `<span class="tag">${k}</span>`).join("")}
+    <div class="monster-card-inner">
+      <div class="monster-card-image">
+        <img src="${monster.image}" alt="${monster.name}" />
+      </div>
+      <div class="monster-card-content">
+        <div class="monster-card-meta">
+          <span class="monster-card-type">${monster.type}</span>
+        </div>
+        <h3 class="monster-card-name">${monster.name}</h3>
+        <p class="monster-card-short">${monster.short}</p>
+        <div class="monster-card-tags">
+          ${monster.keywords.map(tag => `<span>${tag}</span>`).join("")}
+        </div>
       </div>
     </div>
   `;
 
-  card.addEventListener("click", () => {
-    if (typeof openMonsterModal === "function") {
-      openMonsterModal(monster);
-    }
-  });
+  // 클릭 → 상세 모달
+  card.addEventListener("click", () => openMonsterModal(monster));
 
   return card;
 }
 
-async function loadMonsters() {
-  const listContainer = document.getElementById("monster-list");
-  if (!listContainer) return;
 
-  try {
-    const res = await fetch("data/monsters.json");
-    const data = await res.json();
-    ALL_MONSTERS = data.monsters || [];
-  } catch (e) {
-    console.error("몬스터 데이터를 불러오는 중 오류:", e);
-    ALL_MONSTERS = [];
-  }
+// =====================================
+// 3) 몬스터 목록 렌더링
+// =====================================
+function renderMonsterList(filter = "all") {
+  const list = document.getElementById("monster-list");
+  if (!list) return;
 
-  renderMonsterList("all");
-}
+  list.innerHTML = "";
 
-function renderMonsterList(filterType) {
-  const listContainer = document.getElementById("monster-list");
-  if (!listContainer) return;
+  const filtered = MONSTER_DATA.filter(m => {
+    if (filter === "all") return true;
+    return m.type === filter;
+  });
 
-  listContainer.innerHTML = "";
-
-  const filtered =
-    filterType === "all"
-      ? ALL_MONSTERS
-      : ALL_MONSTERS.filter((m) => m.type === filterType);
-
-  filtered.forEach((m) => {
-    listContainer.appendChild(createMonsterCard(m));
+  filtered.forEach(mon => {
+    list.appendChild(createMonsterCard(mon));
   });
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-  if (document.getElementById("monster-list")) {
-    loadMonsters();
 
-    document.querySelectorAll(".filter-btn").forEach((btn) => {
-      btn.addEventListener("click", () => {
-        document
-          .querySelectorAll(".filter-btn")
-          .forEach((b) => b.classList.remove("active"));
-        btn.classList.add("active");
-        renderMonsterList(btn.dataset.filter);
-      });
+// =====================================
+// 4) 페이지 로드 시 실행
+// =====================================
+document.addEventListener("DOMContentLoaded", () => {
+  renderMonsterList(); // 전체 렌더링
+
+  // 필터 이벤트
+  document.querySelectorAll(".filter-btn").forEach(btn => {
+    btn.addEventListener("click", () => {
+      document.querySelectorAll(".filter-btn").forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+
+      const filter = btn.dataset.filter;
+      renderMonsterList(filter);
     });
-  }
+  });
 });
